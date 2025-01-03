@@ -16,13 +16,23 @@ public:
     }
 };
 
-void print_forword(Node *head)
+void print_left_to_right(Node *head)
 {
     Node *temp = head;
     while (temp != NULL)
     {
         cout << temp->val << " ";
         temp = temp->next;
+    }
+}
+
+void print_right_to_left(Node *tail)
+{
+    Node *temp = tail;
+    while (temp != NULL)
+    {
+        cout << temp->val << " ";
+        temp = temp->prev;
     }
 }
 
@@ -57,7 +67,10 @@ int main()
         }
         insert_at_tail(head, tail, val);
     }
-    print_forword(head);
+ 
+    print_left_to_right(head);
+    cout << endl;
+    print_right_to_left(tail);
 
     return 0;
 }
