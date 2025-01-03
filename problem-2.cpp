@@ -39,7 +39,7 @@ void checkPalindrome(Node*head,Node*tail){
         return;
     }
     int isPalindrome = 1;
-    for(Node*i = head,*j = tail;i <=j ; i = i->next,j=j->prev){
+    for (Node *i = head, *j = tail; i != j && i->prev != j; i = i->next, j = j->prev){
             if(i->val != j->val){
                 isPalindrome = 0;
             }
@@ -69,5 +69,5 @@ int main()
     }
     checkPalindrome(head,tail);
 
-    return 0;
+    return 0; 
 }
