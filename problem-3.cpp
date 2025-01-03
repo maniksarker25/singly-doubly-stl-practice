@@ -17,15 +17,6 @@ public:
     }
 };
 
-void print_forword(Node *head)
-{
-    Node *temp = head;
-    while (temp != NULL)
-    {
-        cout << temp->val << " ";
-        temp = temp->next;
-    }
-}
 
 void insert_at_tail(Node *&head, Node *&tail, string val)
 {
@@ -43,6 +34,19 @@ void insert_at_tail(Node *&head, Node *&tail, string val)
     tail = newNode;
 }
 
+Node* find_node(Node*head,string address){
+    Node*temp = head;
+    while (temp != NULL)
+    {
+      if(temp->val == address){
+        return temp;
+      }
+      temp = temp->next;
+    }
+    return NULL;
+    
+}
+
 int main()
 {
     Node *head = NULL;
@@ -58,7 +62,46 @@ int main()
         }
         insert_at_tail(head, tail, val);
     }
-    print_forword(head);
+
+    int q;
+    cin >> q;
+    Node *current = head;
+    while (q--)
+    {
+       string command;
+       cin >> command;
+       if(command == "visit"){
+        string address;
+        cin >> address;
+        Node * node = find_node(head,address);
+        if(node !=NULL){
+            current = node;
+            cout << current->val << endl;
+        }
+        else{
+            cout << "Not Available" << endl;
+        }
+       }
+       else if(command == "next"){
+        if(current->next != NULL){
+            current = current->next;
+            cout << current->val << endl;
+        }
+        else{
+            cout << "Not Available" << endl;
+        }
+       }
+       else if(command == "prev"){
+        if(current->prev != NULL){
+            current = current->prev;
+            cout << current->val << endl;
+        }
+        else{
+            cout << "Not Available" << endl;
+        }
+       }
+    }
+    
 
     return 0;
 }
