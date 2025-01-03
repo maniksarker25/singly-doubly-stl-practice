@@ -16,15 +16,6 @@ public:
     }
 };
 
-void print_forword(Node *head)
-{
-    Node *temp = head;
-    while (temp != NULL)
-    {
-        cout << temp->val << " ";
-        temp = temp->next;
-    }
-}
 
 void insert_at_tail(Node *&head, Node *&tail, int val)
 {
@@ -42,6 +33,25 @@ void insert_at_tail(Node *&head, Node *&tail, int val)
     tail = newNode;
 }
 
+void checkPalindrome(Node*head,Node*tail){
+    if(head == tail){
+        cout << "YES";
+        return;
+    }
+    int isPalindrome = 1;
+    for(Node*i = head,*j = tail;i <=j ; i = i->next,j=j->prev){
+            if(i->val != j->val){
+                isPalindrome = 0;
+            }
+    }
+    if(isPalindrome == 1){
+        cout << "YES";
+    }
+    else{
+        cout << "NO";
+    }
+}
+
 int main()
 {
     Node *head = NULL;
@@ -57,7 +67,7 @@ int main()
         }
         insert_at_tail(head, tail, val);
     }
-    print_forword(head);
+    checkPalindrome(head,tail);
 
     return 0;
 }
