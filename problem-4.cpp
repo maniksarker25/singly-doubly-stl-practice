@@ -83,7 +83,18 @@ void insert_at_head(Node *&head, Node *&tail, int val)
     head->prev = newNode;
     head = newNode;
 }
+int count_linked_list(Node *head)
+{
+    Node *temp = head;
+    int count = 0;
+    while (temp != NULL)
+    {
+        temp = temp->next;
+        count++;
+    }
 
+    return count;
+}
 int main()
 {
     Node *head = NULL;
@@ -94,6 +105,37 @@ int main()
     while(q--){
         int x,v;
         cin >> x >> v;
+        int totalNode = count_linked_list(head);
+        if(x < 0 || x > totalNode){
+            cout << "Invalid" << endl;
+        }
+        else if(x == totalNode){
+            insert_at_tail(head,tail,v);
+            cout << "L -> ";
+            print_left_to_right(head);
+            cout << endl;
+            cout << "R -> ";
+            print_right_to_left(tail);
+            cout << endl;
+        }
+        else if(x == 0){
+            insert_at_head(head,tail,v);
+            cout << "L -> ";
+            print_left_to_right(head);
+            cout << endl;
+            cout << "R -> ";
+            print_right_to_left(tail);
+            cout << endl;
+        }
+        else{
+            insert_at_any_post(head,x,v);
+            cout << "L -> ";
+            print_left_to_right(head);
+            cout << endl;
+            cout << "R -> ";
+            print_right_to_left(tail);
+            cout << endl;
+        }
 
     }
 
