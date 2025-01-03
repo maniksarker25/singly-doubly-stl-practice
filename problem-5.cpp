@@ -33,7 +33,13 @@ int main() {
         cout << endl;
 
         cout << "r -> ";
-        for (auto it = list.rbegin(); it != list.rend(); ++it) {
+        if (!list.empty()) {
+            auto it = list.end();
+            --it;
+            while (it != list.begin()) {
+                cout << *it << " ";
+                --it;
+            }
             cout << *it << " ";
         }
         cout << endl;
