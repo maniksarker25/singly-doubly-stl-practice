@@ -20,14 +20,14 @@ int main() {
             if (v >= 0 && v < list.size()) {
                 auto it = list.begin();
                 for (int i = 0; i < v; i++) {
-                    ++it;
+                    it++;
                 }
                 list.erase(it);
             }
         }
 
         cout << "l -> ";
-        for (auto it = list.begin(); it != list.end(); ++it) {
+        for (auto it = list.begin(); it != list.end(); it++) {
             cout << *it << " ";
         }
         cout << endl;
@@ -35,10 +35,10 @@ int main() {
         cout << "r -> ";
         if (!list.empty()) {
             auto it = list.end();
-            --it;
+            it--;
             while (it != list.begin()) {
                 cout << *it << " ";
-                --it;
+                it--;
             }
             cout << *it << " ";
         }
