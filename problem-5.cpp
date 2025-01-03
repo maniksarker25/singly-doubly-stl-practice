@@ -17,7 +17,8 @@ int main() {
             list.push_back(v);
         } 
         else if (x == 2) {
-            if (v >= 0 && v < list.size()) {
+            int size = list.size();
+            if (v >= 0 && v <size) {
                 auto it = list.begin();
                 for (int i = 0; i < v; i++) {
                     it++;
@@ -26,13 +27,13 @@ int main() {
             }
         }
 
-        cout << "l -> ";
+        cout << "L -> ";
         for (auto it = list.begin(); it != list.end(); it++) {
             cout << *it << " ";
         }
         cout << endl;
 
-        cout << "r -> ";
+        cout << "R -> ";
         if (!list.empty()) {
             auto it = list.end();
             it--;
